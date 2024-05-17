@@ -1,0 +1,17 @@
+Package: infect
+Type: Package
+Title: Simple Generic Infection Models
+Version: 0.0.1
+Date: 2024-05-17
+Authors@R: 
+    person("Ben", "Youngman", , "b.youngman@exeter.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-0215-8189"))
+Maintainer: Ben Youngman <b.youngman@exeter.ac.uk>
+Description: simple generic infection model.
+            to write this part.
+License: GPL-3
+Encoding: UTF-8
+RoxygenNote: 7.3.1
+Imports: Rcpp (>= 1.0.10)
+LinkingTo: Rcpp, RcppArmadillo
+Depends: R (>= 3.5.0)
