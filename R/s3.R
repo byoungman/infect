@@ -54,7 +54,7 @@ tempresp <- function(x, tmin, tmax, topt) {
         stop('lengths of tmin, tmax and topt must be one or ncol(x) as ncol(x) > 1.')
     }
   }
-  .tresp_Rcpp(x, tmin, tmax, topt)
+  drop(.tresp_Rcpp(x, tmin, tmax, topt))
 }  
 
 #' Wet duration requirement for critical disease threshold at a given temperature
@@ -99,7 +99,7 @@ tempresp <- function(x, tmin, tmax, topt) {
 #' @export
 #' 
 reqwetdur <- function(x, wmin, wmax, tmin, tmax, topt) {
-  ft <- tempresp(x, tmin, tmax, topt)
+  ft <- as.matrix(tempresp(x, tmin, tmax, topt))
   nv <- nrow(ft)
   ns <- ncol(ft)
   lt <- c(length(wmin), length(wmax), length(tmin), length(tmin), length(topt))
@@ -108,5 +108,5 @@ reqwetdur <- function(x, wmin, wmax, tmin, tmax, topt) {
   ft[ft == 0] <- NA
   out <- matrix(wmin, nv, ns, byrow = TRUE) / ft
   out[out > matrix(wmax, nv, ns, byrow = TRUE)] <- NA
-  out
+  drop(out)
 }  
